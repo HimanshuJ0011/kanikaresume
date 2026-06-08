@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Kritika - Professional Makeup Artist Resume</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&family=Playfair+Display:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Font Awesome 6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #e9e2db;  /* soft background for screen only */
+            font-family: 'Inter', sans-serif;
+            color: #2c2826;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 32px 20px;
+        }
+
+        /* MAIN RESUME CARD — exact A4 / letter-friendly dimensions */
+        .resume-card {
+            max-width: 1100px;
+            width: 100%;
+            background: #ffffff;
+            border-radius: 28px;
+            box-shadow: 0 25px 40px -12px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+            transition: all 0.2s;
+        }
+
+        .resume-inner {
+            padding: 36px 40px 40px 40px;
+        }
+
+        /* ========= HEADER with image on right top ========= */
+        .header-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            gap: 24px;
+            margin-bottom: 28px;
+            border-bottom: 2px solid #f0dfd4;
+            padding-bottom: 24px;
+        }
+
+        .left-heading {
+            flex: 2;
+        }
+
+        .name {
+            font-family: 'Playfair Display', serif;
+            font-size: 48px;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            color: #3e2c27;
+            line-height: 1.2;
+            margin-bottom: 8px;
+        }
+
+        .title {
+            font-size: 18px;
+            font-weight: 600;
+            color: #b45f48;
+            background: #fef5f0;
+            display: inline-block;
+            padding: 6px 16px;
+            border-radius: 40px;
+            letter-spacing: 0.2px;
+            margin-top: 6px;
+        }
+
+        .contact-details {
+            margin-top: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px 28px;
+            font-size: 14px;
+            color: #4a3d39;
+        }
+
+        .contact-details span {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .contact-details i {
+            color: #b45f48;
+            width: 16px;
+            font-size: 14px;
+        }
+
+        .birth-info {
+            background: #faf2ec;
+            padding: 5px 12px;
+            border-radius: 40px;
+            font-size: 13px;
+            font-weight: 500;
+        }
+
+        /* Photo area - right top corner */
+        .photo-area {
+            flex-shrink: 0;
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background: #f3e3da;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 12px 20px -8px rgba(0, 0, 0, 0.12);
+            border: 3px solid #fff;
+            outline: 1px solid #e5cfc2;
+            overflow: hidden;
+        }
+        .photo-area img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* TWO COLUMNS LAYOUT */
+        .two-columns {
+            display: flex;
+            gap: 40px;
+            flex-wrap: wrap;
+            margin-top: 8px;
+        }
+
+        .left-col {
+            flex: 1.3;
+            min-width: 250px;
+        }
+
+        .right-col {
+            flex: 1;
+            min-width: 250px;
+        }
+
+        /* Section styling */
+        .section {
+            margin-bottom: 32px;
+            break-inside: avoid;  /* avoid breaking inside sections when printing */
+            page-break-inside: avoid;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 20px;
+            font-weight: 700;
+            color: #3e2c27;
+            letter-spacing: -0.2px;
+            border-left: 4px solid #d48e6b;
+            padding-left: 14px;
+            margin-bottom: 18px;
+        }
+
+        /* Experience items */
+        .exp-item {
+            margin-bottom: 24px;
+            break-inside: avoid;
+        }
+
+        .exp-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            flex-wrap: wrap;
+            margin-bottom: 6px;
+        }
+
+        .exp-role {
+            font-weight: 700;
+            font-size: 17px;
+            color: #2f2926;
+        }
+
+        .exp-date {
+            font-size: 13px;
+            font-weight: 600;
+            color: #b45f48;
+            background: #fff3ed;
+            padding: 2px 12px;
+            border-radius: 30px;
+        }
+
+        .exp-company {
+            font-weight: 500;
+            font-size: 14px;
+            color: #6f5850;
+            margin-bottom: 10px;
+        }
+
+        .exp-desc ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .exp-desc li {
+            font-size: 14px;
+            line-height: 1.5;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: baseline;
+            gap: 10px;
+        }
+
+        .exp-desc li i {
+            color: #d48e6b;
+            font-size: 12px;
+            width: 18px;
+            margin-top: 3px;
+        }
+
+        /* Skills badges */
+        .skills-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 8px;
+        }
+
+        .skill-badge {
+            background: #fef5f0;
+            border-radius: 40px;
+            padding: 6px 18px;
+            font-size: 13px;
+            font-weight: 500;
+            color: #573f37;
+            transition: 0.1s;
+        }
+
+        .skill-badge i {
+            margin-right: 6px;
+            font-size: 12px;
+            color: #b45f48;
+        }
+
+        /* Education */
+        .edu-item {
+            margin-bottom: 18px;
+        }
+
+        .edu-title {
+            font-weight: 700;
+            font-size: 15px;
+            color: #2f2926;
+        }
+
+        .edu-meta {
+            font-size: 13px;
+            color: #7e655c;
+            margin-top: 4px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        /* Training list */
+        .training-list {
+            list-style: none;
+        }
+
+        .training-list li {
+            font-size: 14px;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: baseline;
+            gap: 12px;
+        }
+
+        .training-list li i {
+            color: #d48e6b;
+            width: 20px;
+            font-size: 13px;
+        }
+
+        /* Language items */
+        .lang-item {
+            display: flex;
+            justify-content: space-between;
+            font-size: 14px;
+            padding: 8px 0;
+            border-bottom: 1px dashed #eedbcb;
+        }
+
+        /* Summary text */
+        .summary-text {
+            background: #fefaf7;
+            padding: 18px 20px;
+            border-radius: 22px;
+            font-size: 14px;
+            line-height: 1.55;
+            color: #3b312e;
+            border: 1px solid #f4e4db;
+            margin-bottom: 20px;
+        }
+
+        .highlight-note {
+            background: #FCF7F2;
+            padding: 12px 16px;
+            border-radius: 18px;
+            font-size: 13px;
+            margin-top: 16px;
+            color: #5e443b;
+        }
+
+        footer {
+            text-align: center;
+            font-size: 11px;
+            color: #baa99f;
+            border-top: 1px solid #f0dfd4;
+            padding-top: 20px;
+            margin-top: 16px;
+        }
+
+        /* ========= PRINT STYLES - CRITICAL FOR COLOR + SINGLE PAGE ========= */
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+                margin: 0;
+            }
+
+            .resume-card {
+                max-width: 100%;
+                box-shadow: none;
+                border-radius: 0;
+                margin: 0;
+                overflow: visible;
+            }
+
+            .resume-inner {
+                padding: 0.4in 0.3in 0.3in 0.3in;  /* ensure one-page fit */
+            }
+
+            /* Force all colors to print (backgrounds, borders, text) */
+            * {
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+                color-adjust: exact !important;
+            }
+
+            /* Prevent column breaks and page breaks inside sections */
+            .two-columns {
+                gap: 30px;
+            }
+
+            .section, .exp-item, .skills-grid, .summary-text, .training-list, .left-col, .right-col {
+                break-inside: avoid;
+                page-break-inside: avoid;
+            }
+
+            /* header stays compact */
+            .header-row {
+                break-inside: avoid;
+                page-break-after: avoid;
+            }
+
+            .photo-area {
+                box-shadow: none;
+                border: 2px solid #d9c2b4;
+            }
+
+            /* Ensure background colors appear on badges, date, summary */
+            .title, .skill-badge, .exp-date, .birth-info, .summary-text, .highlight-note {
+                background-color: #fef5f0 !important;
+                background: #fef5f0 !important;
+            }
+
+            .summary-text {
+                border: 1px solid #e5cfc2;
+            }
+
+            /* reduce margin/padding slightly to fit exactly 1 page */
+            .resume-inner {
+                padding-top: 0.2in;
+                padding-bottom: 0.2in;
+            }
+
+            .section {
+                margin-bottom: 20px;
+            }
+
+            .exp-item {
+                margin-bottom: 16px;
+            }
+
+            footer {
+                margin-top: 8px;
+                padding-top: 12px;
+            }
+
+            /* Force single page (A4 & letter) */
+            html, body {
+                height: auto;
+            }
+
+            .resume-card {
+                height: auto;
+                page-break-after: avoid;
+                page-break-inside: avoid;
+            }
+
+            /* ensure that no overflow to 2nd page */
+            .resume-inner {
+                max-height: 100%;
+            }
+
+            /* In case any element wants to break, prevent */
+            .two-columns {
+                display: flex;
+                flex-wrap: nowrap;
+                align-items: stretch;
+            }
+
+            @page {
+                size: auto;
+                margin: 0.4in 0.3in;
+            }
+        }
+
+        /* small responsive for screen but print forces desktop layout */
+        @media (max-width: 780px) {
+            .resume-inner {
+                padding: 24px 20px;
+            }
+            .name {
+                font-size: 36px;
+            }
+            .photo-area {
+                width: 200px;
+                height: 200px;
+            }
+            .two-columns {
+                flex-direction: column;
+            }
+        }
+
+        /* for print we keep columns side by side */
+        @media print and (max-width: 780px) {
+            .two-columns {
+                flex-direction: row !important;
+                flex-wrap: nowrap !important;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="resume-card">
+    <div class="resume-inner">
+        <!-- HEADER with image top right -->
+        <div class="header-row">
+            <div class="left-heading">
+                <div class="name">KRITIKA</div>
+                <div class="title">Professional Makeup Artist</div>
+                <div class="contact-details">
+                    <span><i class="fas fa-envelope"></i> chauhankritika526@gmail.com</span>
+                    <span><i class="fas fa-phone-alt"></i> 6397079632</span>
+                    <span><i class="fas fa-map-marker-alt"></i> Rajiv Chowk, Sector 33, Gurugram, Haryana</span>
+                    <span class="birth-info"><i class="fas fa-calendar-alt"></i> 28 August 2006</span>
+                </div>
+            </div>
+            <div class="photo-area">
+                <img src="https://team.fabricaasto.com/files/WhatsApp%20Image%202026-06-08%20at%206.07.39%20PM.jpeg" alt="Kritika Portrait - Makeup Artist">
+            </div>
+        </div>
+
+        <!-- TWO COLUMN BODY -->
+        <div class="two-columns">
+            <!-- LEFT COLUMN: Experience + Skills + Academic + Languages -->
+            <div class="left-col">
+                <!-- PROFESSIONAL EXPERIENCE -->
+                <div class="section">
+                    <div class="section-title">Professional Experience</div>
+                    
+                    <div class="exp-item">
+                        <div class="exp-header">
+                            <span class="exp-role">Freelance Makeup Artist</span>
+                            <span class="exp-date">2025 – Present</span>
+                        </div>
+                        <div class="exp-company">Self-employed · Gurugram, Haryana</div>
+                        <div class="exp-desc">
+                            <ul>
+                                <li><i class="fas fa-brush"></i> Providing bridal, engagement, party, media makeup and occasional makeup as well.</li>
+                                <li><i class="fas fa-comments"></i> Conducting client consultations and skin analysis.</li>
+                                <li><i class="fas fa-spa"></i> Performing professional skin prep and product selection based on skin tone and type.</li>
+                                <li><i class="fas fa-camera"></i> Collaborating with photographers and stylists for portfolio shoots.</li>
+                                <li><i class="fas fa-hand-sparkles"></i> Maintaining hygiene standards and professional ethics.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="exp-item">
+                        <div class="exp-header">
+                            <span class="exp-role">International Makeup Artist (Trained)</span>
+                            <span class="exp-date">2024 – Present</span>
+                        </div>
+                        <div class="exp-company">VLCC Institute | Certified Professional</div>
+                        <div class="exp-desc">
+                            <ul>
+                                <li><i class="fas fa-certificate"></i> Passionate and certified makeup artist with professional training from VLCC.</li>
+                                <li><i class="fas fa-palette"></i> Skilled in bridal, party, and creative makeup looks. Currently working freelance with multiple clients and seeking opportunities to expand professional experience in the beauty industry.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SKILLS section -->
+                <div class="section">
+                    <div class="section-title">Skills</div>
+                    <div class="skills-grid">
+                        <span class="skill-badge"><i class="fas fa-ring"></i> Bridal & Party Makeup</span>
+                        <span class="skill-badge"><i class="fas fa-user-check"></i> Client Handling & Consultation</span>
+                        <span class="skill-badge"><i class="fas fa-cut"></i> Hair Styling & Texture Services</span>
+                        <span class="skill-badge"><i class="fas fa-vial"></i> Product Knowledge & Skin Analysis</span>
+                        <span class="skill-badge"><i class="fas fa-clock"></i> Time Management & Professional Ethics</span>
+                    </div>
+                </div>
+
+                <!-- ACADEMIC QUALIFICATIONS -->
+                <div class="section">
+                    <div class="section-title">Academic Qualifications</div>
+                    <div class="edu-item">
+                        <div class="edu-title">Bachelor of Business Administration (BBA)</div>
+                        <div class="edu-meta">CCS University, Meerut, Uttar Pradesh | 2025 – 2028</div>
+                    </div>
+                </div>
+
+                <!-- LANGUAGES -->
+                <div class="section">
+                    <div class="section-title">Languages</div>
+                    <div class="lang-item"><span>Hindi</span><span>Native / Professional</span></div>
+                    <div class="lang-item"><span>English</span><span>Fluent (Work proficient)</span></div>
+                </div>
+            </div>
+
+            <!-- RIGHT COLUMN: Summary + Training + Highlights -->
+            <div class="right-col">
+                <!-- PROFESSIONAL SUMMARY -->
+                <div class="section">
+                    <div class="section-title">Professional Summary</div>
+                    <div class="summary-text">
+                        Certified International Makeup Artist trained from VLCC Institute with expertise in bridal, party, and creative makeup. Currently working as a freelance artist, delivering personalized beauty services with strong client consultation skills and in-depth product knowledge. Passionate about enhancing natural beauty and growing professionally in the beauty industry.
+                    </div>
+                </div>
+
+                <!-- PROFESSIONAL TRAINING -->
+                <div class="section">
+                    <div class="section-title">Professional Training</div>
+                    <ul class="training-list">
+                        <li><i class="fas fa-graduation-cap"></i> International certificate in media makeup – VLCC (2024)</li>
+                        <li><i class="fas fa-globe"></i> Cidesco - Comité International d'Esthétique et de Cosmétologie</li>
+                        <li><i class="fas fa-leaf"></i> Hair Lab Classes – Styling & Texture Services</li>
+                        <li><i class="fas fa-ticket-alt"></i> Participant – India Style Fashion Week</li>
+                        <li><i class="fas fa-tshirt"></i> La Fashion Closet – Editorial & Fashion styling workshop</li>
+                    </ul>
+                </div>
+
+                <!-- HIGHLIGHTS & ACHIEVEMENTS (consistent with original data) -->
+                <div class="section">
+                    <div class="section-title">Highlights & Achievements</div>
+                    <div class="skills-grid" style="margin-top: 0;">
+                        <span class="skill-badge"><i class="fas fa-award"></i> CIDESCO Qualified</span>
+                        <span class="skill-badge"><i class="fas fa-chalkboard-user"></i> India Style Fashion Week</span>
+                        <span class="skill-badge"><i class="fas fa-palette"></i> Creative & Editorial Makeup</span>
+                    </div>
+                    <div class="highlight-note">
+                        <i class="fas fa-heart" style="color: #b45f48; margin-right: 8px;"></i> 
+                        Dedicated to high-end bridal artistry & personalized beauty solutions.
+                    </div>
+                </div>
+                <!-- extra mini spacing for print alignment -->
+                <div style="height: 4px;"></div>
+            </div>
+        </div>
+
+        <!-- footer (professional closing) -->
+        <footer>
+            <i class="fas fa-makeup-brush"></i> Portfolio & references available upon request • Makeup artistry with passion & precision
+        </footer>
+    </div>
+</div>
+</body>
+</html>
