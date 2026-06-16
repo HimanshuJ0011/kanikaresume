@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kanika Chauhan · Associate Project Manager</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&display=swap" rel="stylesheet" />
+    <!-- Font Awesome 6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <style>
+        /* ---------- RESET ---------- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #f3f0ed;
+            display: flex;
+            justify-content: center;
+            padding: 30px 20px;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            color: #1e1b1a;
+        }
+
+        /* ---------- RESUME CARD ---------- */
+        .resume {
+            max-width: 1000px;
+            width: 100%;
+            background: #ffffff;
+            border-radius: 20px;
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.06);
+            padding: 36px 44px 38px 44px;
+        }
+
+        /* ---------- HEADER (table-based for print reliability) ---------- */
+        .header-table {
+            display: table;
+            width: 100%;
+            margin-bottom: 24px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #eae3dc;
+        }
+
+        .header-left {
+            display: table-cell;
+            vertical-align: top;
+            width: 60%;
+        }
+
+        .header-right {
+            display: table-cell;
+            vertical-align: top;
+            width: 40%;
+            text-align: right;
+        }
+
+        .name-title h1 {
+            font-size: 40px;
+            font-weight: 800;
+            letter-spacing: -0.3px;
+            color: #1f1a17;
+            line-height: 1.1;
+        }
+
+        .name-title .title {
+            font-size: 17px;
+            font-weight: 600;
+            color: #b85c44;
+            background: #fcf2ec;
+            display: inline-block;
+            padding: 4px 16px;
+            border-radius: 30px;
+            margin-top: 4px;
+        }
+
+        .contact-block {
+            font-size: 13.5px;
+            color: #3d332e;
+            line-height: 1.7;
+            padding-top: 6px;
+        }
+
+        .contact-block .item {
+            display: block;
+        }
+
+        .contact-block i {
+            width: 18px;
+            color: #b85c44;
+            font-size: 13px;
+            margin-right: 4px;
+        }
+
+        /* ---------- BODY (single column, table-based for print) ---------- */
+        .body {
+            width: 100%;
+        }
+
+        /* ---------- SECTIONS ---------- */
+        .section {
+            margin-bottom: 22px;
+        }
+
+        .section-title {
+            font-size: 19px;
+            font-weight: 700;
+            color: #1f1a17;
+            border-left: 5px solid #b85c44;
+            padding-left: 14px;
+            margin-bottom: 14px;
+        }
+
+        /* ---------- SUMMARY ---------- */
+        .summary-text {
+            font-size: 14.5px;
+            line-height: 1.55;
+            color: #2c2521;
+            background: #fef9f5;
+            padding: 14px 20px;
+            border-radius: 14px;
+            border: 1px solid #f1e5dd;
+        }
+
+        /* ---------- EXPERIENCE ---------- */
+        .exp-item {
+            margin-bottom: 20px;
+        }
+
+        .exp-header {
+            display: table;
+            width: 100%;
+            margin-bottom: 2px;
+        }
+
+        .exp-role-cell {
+            display: table-cell;
+            vertical-align: baseline;
+            text-align: left;
+        }
+
+        .exp-date-cell {
+            display: table-cell;
+            vertical-align: baseline;
+            text-align: right;
+            white-space: nowrap;
+        }
+
+        .exp-role {
+            font-weight: 700;
+            font-size: 16px;
+            color: #1f1a17;
+        }
+
+        .exp-date {
+            font-size: 12.5px;
+            font-weight: 500;
+            color: #7a645a;
+            background: #f5ede8;
+            padding: 2px 14px;
+            border-radius: 30px;
+        }
+
+        .exp-company {
+            font-weight: 600;
+            font-size: 14.5px;
+            color: #b85c44;
+            margin-top: 1px;
+            margin-bottom: 6px;
+        }
+
+        .exp-company .remote-tag {
+            font-weight: 400;
+            color: #7a645a;
+            font-size: 13px;
+        }
+
+        .exp-list {
+            list-style: none;
+            padding-left: 0;
+            margin-top: 6px;
+        }
+
+        .exp-list li {
+            font-size: 13.5px;
+            line-height: 1.5;
+            margin-bottom: 4px;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .exp-list li::before {
+            content: "▹";
+            color: #b85c44;
+            font-size: 12px;
+            position: absolute;
+            left: 2px;
+            top: 0;
+        }
+
+        /* ---------- SKILLS ---------- */
+        .skills-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px 12px;
+            margin-top: 2px;
+        }
+
+        .skill-tag {
+            background: #fcf2ec;
+            padding: 5px 16px;
+            border-radius: 40px;
+            font-size: 12.5px;
+            font-weight: 500;
+            color: #3a2c25;
+        }
+
+        .skill-tag i {
+            margin-right: 5px;
+            font-size: 11px;
+            color: #b85c44;
+        }
+
+        /* ---------- EDUCATION ---------- */
+        .edu-item {
+            margin-bottom: 14px;
+        }
+
+        .edu-title {
+            font-weight: 700;
+            font-size: 14.5px;
+            color: #1f1a17;
+        }
+
+        .edu-meta {
+            font-size: 13px;
+            color: #5e4c41;
+            margin-top: 1px;
+        }
+
+        /* ---------- CERTIFICATIONS ---------- */
+        .cert-list {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .cert-list li {
+            font-size: 13.5px;
+            margin-bottom: 8px;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .cert-list li::before {
+            content: "✦";
+            color: #b85c44;
+            font-size: 12px;
+            position: absolute;
+            left: 2px;
+            top: 0;
+        }
+
+        /* ---------- SOFT SKILLS ---------- */
+        .soft-skills-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px 14px;
+            margin-top: 4px;
+        }
+
+        .soft-skill {
+            font-size: 13px;
+            font-weight: 500;
+            color: #2c2521;
+            background: #faf5f0;
+            padding: 4px 14px;
+            border-radius: 30px;
+        }
+
+        /* ---------- FOOTER ---------- */
+        .footer {
+            text-align: center;
+            font-size: 10.5px;
+            color: #b09a8e;
+            border-top: 1px solid #eee5de;
+            padding-top: 14px;
+            margin-top: 14px;
+        }
+
+        /* ============================================================ */
+        /* ========== PRINT STYLES - FIXED GAPS & ALIGNMENT ========== */
+        /* ============================================================ */
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+                margin: 0;
+            }
+
+            .resume {
+                max-width: 100%;
+                box-shadow: none;
+                border-radius: 0;
+                padding: 0.2in 0.35in 0.15in 0.35in;
+                margin: 0;
+            }
+
+            /* Force color printing */
+            * {
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+                color-adjust: exact !important;
+            }
+
+            /* Compact spacing for print */
+            .section {
+                margin-bottom: 14px !important;
+            }
+
+            .section-title {
+                margin-bottom: 10px !important;
+                font-size: 17px !important;
+            }
+
+            .exp-item {
+                margin-bottom: 14px !important;
+            }
+
+            .exp-role {
+                font-size: 14.5px !important;
+            }
+
+            .exp-company {
+                font-size: 13.5px !important;
+                margin-bottom: 4px !important;
+            }
+
+            .exp-list li {
+                font-size: 12.5px !important;
+                line-height: 1.4 !important;
+                margin-bottom: 3px !important;
+            }
+
+            .summary-text {
+                font-size: 13px !important;
+                padding: 12px 16px !important;
+                margin-bottom: 0 !important;
+            }
+
+            .skills-grid {
+                gap: 6px 10px !important;
+            }
+
+            .skill-tag {
+                font-size: 11.5px !important;
+                padding: 4px 14px !important;
+            }
+
+            .soft-skills-group {
+                gap: 6px 12px !important;
+            }
+
+            .soft-skill {
+                font-size: 12px !important;
+                padding: 3px 12px !important;
+            }
+
+            .edu-title {
+                font-size: 13.5px !important;
+            }
+
+            .edu-meta {
+                font-size: 12px !important;
+            }
+
+            .cert-list li {
+                font-size: 12.5px !important;
+                margin-bottom: 6px !important;
+            }
+
+            .name-title h1 {
+                font-size: 34px !important;
+            }
+
+            .name-title .title {
+                font-size: 15px !important;
+            }
+
+            .contact-block {
+                font-size: 12.5px !important;
+                line-height: 1.5 !important;
+            }
+
+            .header-table {
+                margin-bottom: 16px !important;
+                padding-bottom: 14px !important;
+            }
+
+            .footer {
+                font-size: 9.5px !important;
+                padding-top: 10px !important;
+                margin-top: 10px !important;
+            }
+
+            /* Force table display for print */
+            .header-table {
+                display: table !important;
+            }
+            .header-left {
+                display: table-cell !important;
+            }
+            .header-right {
+                display: table-cell !important;
+            }
+            .exp-header {
+                display: table !important;
+            }
+            .exp-role-cell {
+                display: table-cell !important;
+            }
+            .exp-date-cell {
+                display: table-cell !important;
+            }
+
+            @page {
+                size: auto;
+                margin: 0.15in 0.2in;
+            }
+
+            /* Prevent page breaks inside sections */
+            .section {
+                break-inside: avoid;
+                page-break-inside: avoid;
+            }
+            .exp-item {
+                break-inside: avoid;
+                page-break-inside: avoid;
+            }
+            .summary-text {
+                break-inside: avoid;
+                page-break-inside: avoid;
+            }
+        }
+
+        /* ---------- RESPONSIVE ---------- */
+        @media (max-width: 700px) {
+            .resume {
+                padding: 20px 18px;
+            }
+            .header-table {
+                display: block;
+            }
+            .header-left,
+            .header-right {
+                display: block;
+                width: 100%;
+                text-align: left;
+            }
+            .header-right {
+                margin-top: 12px;
+            }
+            .contact-block {
+                text-align: left;
+            }
+            .name-title h1 {
+                font-size: 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="resume">
+
+        <!-- ========== HEADER (table-based) ========== -->
+        <div class="header-table">
+            <div class="header-left">
+                <div class="name-title">
+                    <h1>KANIKA CHAUHAN</h1>
+                    <div class="title">Associate Project Manager</div>
+                </div>
+            </div>
+            <div class="header-right">
+                <div class="contact-block">
+                    <span class="item"><i class="fas fa-map-pin"></i> Rajiv Chowk, Gurgaon - 122022</span>
+                    <span class="item"><i class="fas fa-phone-alt"></i> +91 7500156013</span>
+                    <span class="item"><i class="fas fa-envelope"></i> kanikathakur075@gmail.com</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- ========== BODY ========== -->
+        <div class="body">
+
+            <!-- PROFESSIONAL SUMMARY -->
+            <div class="section">
+                <div class="section-title">Professional Summary</div>
+                <div class="summary-text">
+                    Results-driven IT Project Manager with 3 years of experience delivering ERP implementations and web development projects across diverse industries. Demonstrated expertise in managing cross-functional teams, overseeing vendor coordination, and executing end-to-end project lifecycles using SDLC and Waterfall methodologies. Proven ability to streamline processes, mitigate risks, and ensure successful stakeholder alignment. Committed to driving digital transformation through effective project governance, operational efficiency, and measurable business outcomes.
+                </div>
+            </div>
+
+            <!-- KEY SKILLS -->
+            <div class="section">
+                <div class="section-title">Key Skills</div>
+                <div class="skills-grid">
+                    <span class="skill-tag"><i class="fas fa-cubes"></i> ERP Implementations</span>
+                    <span class="skill-tag"><i class="fas fa-chart-line"></i> Budget &amp; Cost Control</span>
+                    <span class="skill-tag"><i class="fas fa-shield-alt"></i> Risk Mitigation</span>
+                    <span class="skill-tag"><i class="fas fa-code-branch"></i> SDLC</span>
+                    <span class="skill-tag"><i class="fas fa-headset"></i> Post-Deployment Support</span>
+                    <span class="skill-tag"><i class="fas fa-tasks"></i> Project Planning &amp; Delivery</span>
+                    <span class="skill-tag"><i class="fas fa-handshake"></i> Stakeholder &amp; Vendor Coordination</span>
+                    <span class="skill-tag"><i class="fas fa-users-cog"></i> Change Management &amp; User Adoption</span>
+                    <span class="skill-tag"><i class="fas fa-file-alt"></i> Client Communication &amp; Documentation</span>
+                </div>
+            </div>
+
+            <!-- PROFESSIONAL EXPERIENCE -->
+            <div class="section">
+                <div class="section-title">Professional Experience</div>
+
+                <!-- Experience 1 -->
+                <div class="exp-item">
+                    <div class="exp-header">
+                        <div class="exp-role-cell">
+                            <span class="exp-role">Associate Project Manager</span>
+                        </div>
+                        <div class="exp-date-cell">
+                            <span class="exp-date">April 2024 – Present</span>
+                        </div>
+                    </div>
+                    <div class="exp-company">Searchosis Marketing Pvt. Ltd. – Gurgaon <span class="remote-tag">(Remote)</span></div>
+                    <ul class="exp-list">
+                        <li>Led end-to-end ERPNext implementations for clients in healthcare, retail, and manufacturing, ensuring alignment with business goals and regulatory requirements.</li>
+                        <li>Acted as the single point of contact between stakeholders and internal dev/design teams, ensuring accurate communication and smooth delivery.</li>
+                        <li>Tracked project budgets, resource utilization, and risk factors to deliver within scope and time constraints.</li>
+                        <li>Designed and facilitated client onboarding, UAT, and post-go-live training, improving system adoption.</li>
+                    </ul>
+                </div>
+
+                <!-- Experience 2 -->
+                <div class="exp-item">
+                    <div class="exp-header">
+                        <div class="exp-role-cell">
+                            <span class="exp-role">Project Coordinator</span>
+                        </div>
+                        <div class="exp-date-cell">
+                            <span class="exp-date">October 2023 – April 2024</span>
+                        </div>
+                    </div>
+                    <div class="exp-company">ACME Infolabs – Noida</div>
+                    <ul class="exp-list">
+                        <li>Coordinated the development and deployment of web-based applications for B2B clients, ensuring timelines and budgets were met.</li>
+                        <li>Supported developers and designers with project briefs, task prioritization, and sprint tracking.</li>
+                        <li>Regularly updated stakeholders with progress reports and managed expectations through scope control.</li>
+                        <li>Conducted post-project evaluations to identify improvement areas for future projects.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- EDUCATION -->
+            <div class="section">
+                <div class="section-title">Education</div>
+                <div class="edu-item">
+                    <div class="edu-title">Master of Business Administration (MBA) – IT &amp; FinTech (Online)</div>
+                    <div class="edu-meta">Manipal University Jaipur · 2026 – Currently Pursuing</div>
+                </div>
+                <div class="edu-item">
+                    <div class="edu-title">Bachelor of Computer Applications (BCA)</div>
+                    <div class="edu-meta">Chaudhary Charan Singh University, Meerut · 2020 – 2023</div>
+                </div>
+            </div>
+
+            <!-- CERTIFICATIONS -->
+            <div class="section">
+                <div class="section-title">Certifications</div>
+                <ul class="cert-list">
+                    <li>Project Management Assessment – LearnTube.ai</li>
+                    <li>Agile Foundations – LinkedIn Learning</li>
+                    <li>ERPNext Functional Training – SMPL</li>
+                </ul>
+            </div>
+
+            <!-- SOFT SKILLS -->
+            <div class="section">
+                <div class="section-title">Soft Skills</div>
+                <div class="soft-skills-group">
+                    <span class="soft-skill">Leadership &amp; Team Building</span>
+                    <span class="soft-skill">Analytical &amp; Critical Thinking</span>
+                    <span class="soft-skill">Communication &amp; Negotiation</span>
+                    <span class="soft-skill">Strategic Planning</span>
+                    <span class="soft-skill">Adaptability &amp; Time Management</span>
+                    <span class="soft-skill">Problem Solving Under Pressure</span>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- FOOTER -->
+        <div class="footer">
+            <i class="fas fa-briefcase"></i> · Open to new opportunities · <i class="fas fa-certificate"></i> PMP aspirant
+        </div>
+    </div>
+</body>
+</html>
